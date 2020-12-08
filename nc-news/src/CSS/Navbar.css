@@ -1,0 +1,47 @@
+.navbar {
+  display: grid;
+  grid-template-columns: 35% auto;
+  grid-template-areas: 'topics search';
+}
+
+.topicsNav {
+  grid-area: topics;
+  margin: 0;
+  text-align: right;
+  font-size: 1.5em;
+}
+
+.topicsLink {
+  text-decoration: none;
+  color: black;
+}
+
+.searchNav {
+  grid-area: search;
+  text-align: center;
+}
+
+.navFont {
+  font-size: 1.5em;
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+}
+
+#searchOptions {
+  font-size: 1.5em;
+  box-sizing: content-box;
+}
+
+#searchTerm {
+  font-size: 1.5em;
+  box-sizing: content-box;
+}
+
+#searchIcon {
+  font-size: 1.5em;
+}
+
+.navElements {
+  margin-right: 0.25em;
+  margin-left: 0.25em;
+}

@@ -1,7 +1,16 @@
+import Header from './Components/Header';
+import Navbar from './Components/Navbar';
 import './CSS/App.css';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <body>
+      <div className="App">
+        <Header />
+        <Navbar />
+      </div>
+    </body>
+  );
 }
 
 export default App;
