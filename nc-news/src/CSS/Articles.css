@@ -1,0 +1,18 @@
+.cardLinks {
+  text-decoration: none;
+  color: red;
+}
+
+.articlesCard {
+  padding: 1em;
+  list-style-type: none;
+}
+
+.articlesCardDetails {
+  margin-left: 2em;
+}
+
+#articlesBody {
+  margin-left: 4em;
+  margin-bottom: 2em;
+}

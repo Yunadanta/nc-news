@@ -1,0 +1,39 @@
+#article {
+  margin-left: 1em;
+}
+
+#commentsCard {
+  display: grid;
+  grid-template-columns: 15% auto;
+  grid-template-areas: '. comments';
+}
+
+#commentsContent {
+  grid-area: comments;
+  margin-top: 0;
+  padding-left: 0;
+}
+
+.cardLinks {
+  text-decoration: none;
+  color: red;
+}
+
+.articleCommentsCard {
+  padding-bottom: 1em;
+  list-style-type: none;
+}
+
+.articleCardDetails {
+  margin-left: 2em;
+}
+
+#articleBody {
+  margin-left: 4em;
+  margin-bottom: 2em;
+}
+
+#commentBody {
+  margin-left: 2em;
+  margin-bottom: 2em;
+}
