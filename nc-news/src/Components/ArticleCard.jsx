@@ -20,13 +20,14 @@ const ArticleCard = (article) => {
   const [comments, setComments] = useState([]);
   const [showComments, setShowComments] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [query, setQuery] = useState({ sort_by: 'votes', order: 'desc' });
 
   useEffect(() => {
-    fetchComments(article_id).then((data) => {
+    fetchComments(article_id, query).then((data) => {
       setComments(data);
       setLoading(false);
     });
-  }, [showComments, article_id]);
+  }, [showComments, article_id, query]);
 
   const monthNames = [
     'January',

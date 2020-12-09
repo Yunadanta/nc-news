@@ -1,0 +1,43 @@
+.buttonText {
+  margin: 0;
+}
+
+.topicsList {
+  list-style-type: none;
+}
+
+.topicsCard {
+  margin-bottom: 2em;
+}
+
+.topicsBody {
+  margin-left: 2em;
+}
+
+.topicsArticlesCount {
+  margin-left: 4em;
+}
+
+#topicsArticlesCard {
+  display: grid;
+  grid-template-columns: 10% auto;
+  grid-template-areas: '. articles';
+}
+
+#articlesContent {
+  list-style-type: none;
+  grid-area: articles;
+}
+
+.cardLinks {
+  text-decoration: none;
+  color: red;
+}
+
+.topicsArticlesList {
+  margin-bottom: 2em;
+}
+
+.topicsArticlesDetails {
+  margin-left: 2em;
+}

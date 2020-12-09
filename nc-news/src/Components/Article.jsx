@@ -20,7 +20,7 @@ const Article = ({ article_id }) => {
     <Loading item="article" />
   ) : (
     <section id="article">
-      <ArticleCard key={article.article_id} {...article} />;
+      <ArticleCard key={article.article_id} {...article} />
     </section>
   );
 };

@@ -18,11 +18,22 @@ export const fetchArticle = (id) => {
   });
 };
 
-export const fetchComments = (id) => {
-  console.log(id);
+export const fetchComments = (id, sort) => {
   return ncNewsAPI
-    .get(`/articles/${id}/comments`)
+    .get(`/articles/${id}/comments`, { params: sort })
     .then(({ data: { comments } }) => {
       return comments;
     });
+};
+
+export const fetchTopics = () => {
+  return ncNewsAPI.get('/topics').then(({ data: { topics } }) => {
+    return topics;
+  });
+};
+
+export const fetchUser = (username) => {
+  return ncNewsAPI.get(`/users/${username}`).then(({ data: { user } }) => {
+    return user;
+  });
 };

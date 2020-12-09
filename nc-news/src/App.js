@@ -14,6 +14,7 @@ function App() {
       <Navbar />
       <Router id="app-router">
         <ArticlesList path="/" />
+        <ArticlesList path="/articles" />
         <Article path="/articles/:article_id" />
         <TopicsList path="/topics" />
         <User path="/users/:username" />
