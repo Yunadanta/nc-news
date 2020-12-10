@@ -1,14 +1,13 @@
 .navbar {
   display: grid;
-  grid-template-columns: 35% auto;
-  grid-template-areas: 'topics search';
+  grid-template-columns: 25% 50% 25%;
+  grid-template-areas: 'topics search login';
 }
 
 .topicsNav {
   grid-area: topics;
   margin: 0;
-  padding-right: 1em;
-  text-align: right;
+  text-align: center;
   font-size: 1.5em;
 }
 
@@ -45,4 +44,18 @@
 .navElements {
   margin-right: 0.25em;
   margin-left: 0.25em;
+}
+
+#loginButtons {
+  grid-area: login;
+}
+
+#logInButton {
+  font-size: 1.5em;
+  margin: 0.25em;
+}
+
+#signUpButton {
+  font-size: 1.5em;
+  margin: 0.25em;
 }

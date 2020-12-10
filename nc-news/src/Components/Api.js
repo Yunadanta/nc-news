@@ -37,3 +37,9 @@ export const fetchUser = (username) => {
     return user;
   });
 };
+
+export const fetchSearchedContent = (option, term) => {
+  return ncNewsAPI.get(`/${option}/${term}`).then(({ data: { article } }) => {
+    return article;
+  });
+};

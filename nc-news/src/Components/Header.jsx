@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <>
       <h1>
-        <Link to={'/articles'} className="headerLink">
+        <Link to={'/'} className="headerLink">
           Northcoders News
         </Link>
       </h1>

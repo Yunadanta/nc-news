@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from '@reach/router';
 import '../CSS/Article.css';
 import { fetchComments } from './Api';
+import { formatDate } from './Utils/date-format';
 import ArticleCommentsCard from './ArticleCommentsCard';
 import Loading from './Loading';
 
@@ -29,25 +30,7 @@ const ArticleCard = (article) => {
     });
   }, [showComments, article_id, query]);
 
-  const monthNames = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  const dayDate = new Date(created_at).getDate();
-  const month = monthNames[new Date(created_at).getMonth()];
-  const year = new Date(created_at).getFullYear();
-  const readableDate = `${dayDate} ${month} ${year}`;
+  const readableDate = formatDate(created_at);
 
   return (
     <section id="article">
@@ -55,9 +38,13 @@ const ArticleCard = (article) => {
       <span className="articleCardDetails">Topic: {topic}</span>
       <span className="articleCardDetails">
         Author:{' '}
-        <Link to={`/users/${author}`} className="cardLinks">
-          {author}
-        </Link>
+        {author !== 'anonymous' ? (
+          <Link to={`/users/${author}`} className="cardLinks">
+            {author}
+          </Link>
+        ) : (
+          { author }
+        )}
       </span>
       <p className="articleCardDetails" id="articleBody">
         {body}
