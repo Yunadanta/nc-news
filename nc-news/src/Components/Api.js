@@ -47,3 +47,7 @@ export const fetchSearchedContent = (option, term) => {
 export const deleteComment = (id) => {
   return ncNewsAPI.delete(`comments/${id}`);
 };
+
+export const postComment = (id) => {
+  //
+};

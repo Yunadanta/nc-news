@@ -5,6 +5,7 @@ import { fetchComments } from './Api';
 import { formatDate } from './Utils/date-format';
 import ArticleCommentsCard from './ArticleCommentsCard';
 import Loading from './Loading';
+import AddComment from './AddComment';
 
 const ArticleCard = (article) => {
   const {
@@ -66,6 +67,7 @@ const ArticleCard = (article) => {
           )}
         </button>
       </p>
+      {showComments ? <AddComment setComments={setComments} /> : <> </>}
       <section id="commentsCard">
         <ul id="commentsContent">
           {showComments ? (
