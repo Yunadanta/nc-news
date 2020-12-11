@@ -16,3 +16,23 @@
   margin-left: 4em;
   margin-bottom: 2em;
 }
+
+ul {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.sortOptions {
+  text-align: center;
+}
+
+.optionsBoxes {
+  margin-left: 0.5em;
+}
+
+.limit {
+  margin-left: 2em;
+}

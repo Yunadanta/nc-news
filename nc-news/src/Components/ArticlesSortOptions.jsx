@@ -1,13 +1,22 @@
 import React from 'react';
+import '../CSS/Articles.css';
 
-const SortOptions = ({ setQuery, setLimit }) => {
+const ArticlesSortOptions = ({
+  query: { sort_by, order },
+  setQuery,
+  setLimit,
+  articlesLength,
+}) => {
   return (
-    <div>
+    <div className="sortOptions">
       <label htmlFor="sort">
-        <span>Sort by: </span>
+        <span className="sortBy">Sort by: </span>
         <select
           name="sort"
-          onChange={(event) => setQuery({ sort_by: event.target.value })}
+          className="optionsBoxes"
+          onChange={(event) =>
+            setQuery({ sort_by: event.target.value, order: order })
+          }
         >
           <option value="created_at">Date posted</option>
           <option value="votes">Votes</option>
@@ -19,7 +28,10 @@ const SortOptions = ({ setQuery, setLimit }) => {
       <label htmlFor="order">
         <select
           name="order"
-          onChange={(event) => setQuery({ order: event.target.value })}
+          className="optionsBoxes"
+          onChange={(event) =>
+            setQuery({ sort_by: sort_by, order: event.target.value })
+          }
         >
           <option value="desc">Desc</option>
           <option value="asc">Asc</option>
@@ -27,15 +39,16 @@ const SortOptions = ({ setQuery, setLimit }) => {
       </label>
 
       <label htmlFor="limit">
-        <span>Limit: </span>
+        <span className="limit">Limit: </span>
         <select
           name="limit"
-          onChange={(event) => setLimit({ order: event.target.value })}
+          className="optionsBoxes"
+          onChange={(event) => setLimit(event.target.value)}
         >
           <option value="5">5</option>
           <option value="10">10</option>
           <option value="25">25</option>
-          <option value="">All</option>
+          <option value={articlesLength}>All</option>
         </select>
       </label>
       <hr />
@@ -43,4 +56,4 @@ const SortOptions = ({ setQuery, setLimit }) => {
   );
 };
 
-export default SortOptions;
+export default ArticlesSortOptions;
