@@ -1,5 +1,9 @@
 export const formatQuery = (queryStr) => {
   const strSplit = queryStr.split('?option=').join('').split('&term=');
 
-  return { option: strSplit[0], term: strSplit[1] };
+  const option = strSplit[0];
+
+  const term = strSplit[1].split('%20').join(' ');
+
+  return { option: option, term: term };
 };

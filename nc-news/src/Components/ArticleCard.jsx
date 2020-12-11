@@ -43,7 +43,7 @@ const ArticleCard = (article) => {
             {author}
           </Link>
         ) : (
-          { author }
+          author
         )}
       </span>
       <p className="articleCardDetails" id="articleBody">

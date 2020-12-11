@@ -4,7 +4,7 @@ import TopicsList from './Components/TopicsList';
 import User from './Components/User';
 import Header from './Components/Header';
 import Navbar from './Components/Navbar';
-import SearchResults from './Components/SearchResults';
+import SearchConvert from './Components/SearchConvert';
 import './CSS/App.css';
 import { Router } from '@reach/router';
 
@@ -17,7 +17,7 @@ function App() {
         <ArticlesList path="/" />
         <ArticlesList path="/articles" />
         <Article path="/articles/:article_id" />
-        <SearchResults path="/search" />
+        <SearchConvert path="/search" />
         <TopicsList path="/topics" />
         <User path="/users/:username" />
       </Router>

@@ -47,7 +47,7 @@ const UserCard = (user) => {
           (article) => article.length > 0
         );
 
-        const comments = correctedComments.flat();
+        const comments = actualComments.flat();
 
         setComments(comments);
         setCommentsLoading(false);
@@ -56,7 +56,7 @@ const UserCard = (user) => {
 
   return (
     <section id="user">
-      <h3>{`${username}`}</h3>
+      <h3>{username}</h3>
       <img src={avatar_url} alt={`${username}'s avatar.`} />
       <p>Name: {name}</p>
       <ul>

@@ -22,7 +22,7 @@ const ArticlesList = () => {
     <Loading item="articles" />
   ) : (
     <section id="articlesList">
-      <SortOptions />
+      <SortOptions setQuery={setQuery} setLimit={setLimit} />
       <ul>
         {articles.map((article) => {
           return <ArticlesCard key={article.article_id} {...article} />;
