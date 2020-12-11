@@ -14,20 +14,28 @@ const UserCard = (user) => {
   const [showComments, setShowComments] = useState(false);
   const [articlesLoading, setArticlesLoading] = useState(true);
   const [commentsLoading, setCommentsLoading] = useState(true);
+  const [articlesQuery, setArticlesQuery] = useState({
+    sort_by: 'created_at',
+    order: 'desc',
+  });
+  const [commentsQuery, setCommentsQuery] = useState({
+    sort_by: 'created_at',
+    order: 'desc',
+  });
 
   useEffect(() => {
-    fetchArticles()
+    fetchArticles(articlesQuery)
       .then((data) => {
         const filterArticles = data.filter(
           (article) => article.author === username
         );
         setArticles(filterArticles);
         setArticlesLoading(false);
-        return data;
+        return filterArticles;
       })
-      .then((data) => {
-        return data.map((article) => {
-          return fetchComments(article.article_id);
+      .then((filterData) => {
+        return filterData.map((article) => {
+          return fetchComments(article.article_id, commentsQuery);
         });
       })
       .then((response) => {
@@ -112,9 +120,15 @@ const UserCard = (user) => {
               commentsLoading ? (
                 <Loading item="comments" />
               ) : (
-                comments.map((comment) => {
+                comments.map((comment, i) => {
                   return (
-                    <UserCommentsCard key={comment.comment_id} {...comment} />
+                    <UserCommentsCard
+                      key={comment.comment_id}
+                      {...comment}
+                      index={i}
+                      setComments={setComments}
+                      comments={comments}
+                    />
                   );
                 })
               )

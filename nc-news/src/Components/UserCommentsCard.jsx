@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { formatDate } from './Utils/date-format';
-import { fetchArticles } from './Api';
+import { fetchArticles, deleteComment } from './Api';
 import { Link } from '@reach/router';
 
 const UserCommentsCard = ({
@@ -9,6 +9,9 @@ const UserCommentsCard = ({
   body,
   created_at,
   votes,
+  index,
+  setComments,
+  comments,
 }) => {
   const [articleName, setArticleName] = useState([]);
 
@@ -27,6 +30,12 @@ const UserCommentsCard = ({
 
   const readableDate = formatDate(created_at);
 
+  const handleCommentDeletion = (id) => {
+    deleteComment(id).then(() => {
+      setComments([...comments.slice(0, index), ...comments.slice(index + 1)]);
+    });
+  };
+
   return (
     <li className="userCommentsCard">
       <p className="userCommentsCardDetails">{body}</p>
@@ -41,7 +50,14 @@ const UserCommentsCard = ({
       </span>
       <span className="userCommentsCardDetailsInline">Votes: {votes}</span>
       <br />
-      <button type="button" className="deleteButton">
+      <button
+        type="button"
+        className="deleteButton"
+        onClick={() => {
+          if (window.confirm('Are you sure you want to delete this comment?'))
+            handleCommentDeletion(comment_id);
+        }}
+      >
         ❌ Delete Comment ❌
       </button>
     </li>

@@ -72,9 +72,15 @@ const ArticleCard = (article) => {
             loading ? (
               <Loading item="comments" />
             ) : (
-              comments.map((comment) => {
+              comments.map((comment, i) => {
                 return (
-                  <ArticleCommentsCard key={comment.comment_id} {...comment} />
+                  <ArticleCommentsCard
+                    key={comment.comment_id}
+                    {...comment}
+                    setComments={setComments}
+                    comments={comments}
+                    index={i}
+                  />
                 );
               })
             )

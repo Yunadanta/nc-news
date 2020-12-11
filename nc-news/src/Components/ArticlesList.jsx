@@ -12,8 +12,6 @@ const ArticlesList = () => {
   const [articlesLength, setArticlesLength] = useState(0);
 
   useEffect(() => {
-    console.log(query);
-    console.log(limit);
     fetchArticles(query).then((data) => {
       setArticlesLength(data.length);
       const limitData = data.slice(0, limit);
